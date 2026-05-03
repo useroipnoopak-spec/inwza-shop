@@ -1,0 +1,10 @@
+const router = require('express').Router();
+const c = require('../controllers/orderController');
+const { auth } = require('../middleware/auth');
+const upload = require('../middleware/upload');
+router.get('/', auth, c.list);
+router.post('/:id/pay', auth, upload.single('slip'), c.pay);
+router.post('/:id/ship', auth, c.ship);
+router.post('/:id/complete', auth, c.complete);
+router.post('/:id/dispute', auth, c.dispute);
+module.exports = router;

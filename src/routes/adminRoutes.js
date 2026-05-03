@@ -1,0 +1,12 @@
+const router = require('express').Router();
+const c = require('../controllers/adminController');
+const { auth, requireRole } = require('../middleware/auth');
+router.use(auth, requireRole('admin'));
+router.get('/dashboard', c.dashboard);
+router.post('/kyc/:userId', c.kyc);
+router.post('/wallet/:id', c.wallet);
+router.post('/orders/:id/slip', c.orderSlip);
+router.post('/users/:id/status', c.userStatus);
+router.post('/settings', c.settings);
+router.post('/disputes/:id/resolve', c.resolveDispute);
+module.exports = router;

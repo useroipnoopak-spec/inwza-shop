@@ -1,0 +1,10 @@
+const router = require('express').Router();
+router.use('/auth', require('./authRoutes'));
+router.use('/products', require('./productRoutes'));
+router.use('/wallet', require('./walletRoutes'));
+router.use('/orders', require('./orderRoutes'));
+router.use('/chat', require('./chatRoutes'));
+router.use('/seller', require('./sellerRoutes'));
+router.use('/reviews', require('./reviewRoutes'));
+router.use('/admin', require('./adminRoutes'));
+module.exports = router;
